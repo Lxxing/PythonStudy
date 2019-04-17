@@ -23,9 +23,11 @@ struct Var
 
 struct Num
 {
-	Num() ;
-	float get() const ;
-	void set(float value) ;
+	Num() :rovalue(1.0),value(2.0){}
+	float get() const { return value; }
+	void set(float val) { value = val; rovalue = val; }
+	float rovalue;
+	float value;
 };
 
 #endif // ExposeClasses_h__

@@ -8,10 +8,13 @@
 #include <boost/python.hpp>
 
 #include "ExposeClasses.h"
+#include "Inheritance.h"
+
+#include <Pydlltest/hello.h>
 
 char const* greet()
-{
-	return "hello, world";
+{	
+	return hello();
 }
 
 BOOST_PYTHON_MODULE(PYWrapper)

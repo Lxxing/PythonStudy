@@ -21,10 +21,7 @@
     <ClInclude Include="stdafx.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="ExposeClasses.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Inheritance.h">
+    <ClInclude Include="hello.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -32,7 +29,10 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="PYWrapper.cpp">
+    <ClCompile Include="Pydlltest.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="hello.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
