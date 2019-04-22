@@ -9,6 +9,7 @@
 
 #include "ExposeClasses.h"
 #include "Inheritance.h"
+#include "Callback.h"
 
 #include <Pydlltest/hello.h>
 
@@ -20,6 +21,11 @@ char const* greet()
 BOOST_PYTHON_MODULE(PYWrapper)
 {
 	using namespace boost::python;
+
+
+	PyEval_InitThreads();
+	def("TestCallBack", TestCallBack);
+
 	def("greet", greet);
 
 	class_<World>("World", init<std::string>())
