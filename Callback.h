@@ -9,27 +9,24 @@ using namespace std;
 using namespace boost::python;
 
 
-//GIL全局锁简化获取用，  
-
-//用于帮助C++线程获得GIL锁，从而防止python崩溃  
+//GIL全局锁简化获取用,用于帮助C++线程获得GIL锁，从而防止python崩溃  
 
 class PyLock
-
 {
-	private:
+private:
 
-		PyGILState_STATE gil_state;
+	PyGILState_STATE gil_state;
 
-    public: 
+public: 
 
-		PyLock()
-		{
-		    gil_state = PyGILState_Ensure();
-	    }
-		~PyLock()
-		{
-			PyGILState_Release(gil_state);
-		}
+	PyLock()
+	{
+		gil_state = PyGILState_Ensure();
+	}
+	~PyLock()
+	{
+		PyGILState_Release(gil_state);
+	}
 };
 
 int TestCallBack(const string& szParam, object pyCallBack);

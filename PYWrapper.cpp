@@ -29,6 +29,7 @@ BOOST_PYTHON_MODULE(PYWrapper)
 	def("greet", greet);
 
 	class_<World>("World", init<std::string>())
+		.def(init<>())
 		.def("greet", &World::greet)
 		.def("set", &World::set)
 		;
