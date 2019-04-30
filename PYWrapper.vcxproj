@@ -98,7 +98,7 @@
       <AdditionalDependencies>Pydlltest.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /y "Debug\PYWrapper.dll" "Debug\PYWrapper.pyd"</Command>
+      <Command>xcopy /y "$(ProjectDir)$(Configuration)\PYWrapper.dll" "$(ProjectDir)$(Configuration)\PYWrapper.pyd"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">

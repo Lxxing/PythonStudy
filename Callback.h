@@ -29,6 +29,6 @@ public:
 	}
 };
 
-int TestCallBack(const string& szParam, object pyCallBack);
+int TestCallBack(const string& szParam, object pyCallBack, object obj);
 
 #endif // Callback_h__
