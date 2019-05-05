@@ -24,7 +24,8 @@ def tr(sz,obj):
     obj.static_print()
 
 try:
-    PYWrapper.TestCallBack("py 2 c++",tr,ClassTest.Foo())
+    name = PYWrapper.TestCallBack("py 2 c++",tr,ClassTest.Foo())
+    print(name)
 except TypeError as te:
     print(te)
 except Exception as ex:

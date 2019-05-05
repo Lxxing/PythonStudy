@@ -3,7 +3,7 @@
 
 #include <iostream> 
 
-int TestCallBack(const string& szParam, object pyCallBack, object obj)
+const string TestCallBack(const string& szParam, object pyCallBack, object obj)
 {
 
 	//Python中传递的参数，C++中可以直接使用  
@@ -12,6 +12,6 @@ int TestCallBack(const string& szParam, object pyCallBack, object obj)
 		PyLock _pylock;
 		pyCallBack("C++ 2 Python.",obj);
 	}
-
-	return 0;
+	std::string rnt = "hello";
+	return rnt;
 }

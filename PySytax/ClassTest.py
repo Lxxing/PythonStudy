@@ -13,7 +13,7 @@ class Foo(object):
 
     def instance_print(self):
         #print("类实例方法，只能被实例对象调用".format(Foo))
-        print("类实例方法，只能被实例对象调用")
+        print("父类实例方法，只能被实例对象调用")
         Foo.Num += 1
 
     @staticmethod
@@ -28,6 +28,16 @@ class Foo(object):
         cls.Num += 1
         cls.name = "class_print"
 
+def SunFoo(Foo):
+    Name = "SunFoo"
+
+    def __init__(self):
+        Foo.__init__(self)
+
+    def instance_print(self):
+        super(SunFoo,self).instance_print()
+        print("子类实例方法，只能被实例对象调用")
+        
 print('---------实例测试-------')
 foo = Foo()
 foo.instance_print()
@@ -41,3 +51,7 @@ print('--------属性测试--------')
 print(Foo.Num)  #类属性
 print(foo.name) #实例共有属性
 print(foo._Foo__age)  #实例私有属性,不同版本命名规则不同，不建议这么做
+
+print('---------子类测试-------')
+sun = SunFoo(foo)
+sun.instance_print()
