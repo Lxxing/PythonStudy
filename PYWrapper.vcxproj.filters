@@ -30,6 +30,12 @@
     <ClInclude Include="Callback.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="PureClass.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Pointer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

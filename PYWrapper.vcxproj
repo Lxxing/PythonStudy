@@ -152,6 +152,8 @@
     <ClInclude Include="Callback.h" />
     <ClInclude Include="ExposeClasses.h" />
     <ClInclude Include="Inheritance.h" />
+    <ClInclude Include="Pointer.h" />
+    <ClInclude Include="PureClass.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>

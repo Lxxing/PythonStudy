@@ -2,6 +2,22 @@ import PYWrapper
 #from PYWrapper import TestCallBack
 import ClassTest
 
+a = PYWrapper.A()
+print(a.f())
+ap = PYWrapper.APointer.create()
+print(ap.hello())
+aptr = PYWrapper.APointer.createSP()
+print(aptr.hello())
+apw = PYWrapper.APointer()
+aw1 = apw.GetWorld()
+aw2 = apw.GetWorld()
+print("aw1:" + aw1.greet())
+print("aw2:" + aw2.greet())
+aw1.set("aw1")
+aw2.set("aw2")
+print("aw1:" + aw1.greet())
+print("aw2:" + aw2.greet())
+
 PYWrapper.greet()
 planet = PYWrapper.World()
 planet.set('tgest')

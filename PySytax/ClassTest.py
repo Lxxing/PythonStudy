@@ -53,5 +53,5 @@ print(foo.name) #实例共有属性
 print(foo._Foo__age)  #实例私有属性,不同版本命名规则不同，不建议这么做
 
 print('---------子类测试-------')
-sun = SunFoo(foo)
-sun.instance_print()
+#sun = SunFoo(foo)
+#sun.instance_print()
