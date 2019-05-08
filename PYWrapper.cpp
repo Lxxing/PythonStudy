@@ -12,6 +12,7 @@
 #include "Callback.h"
 #include "PureClass.h"
 #include "Pointer.h"
+#include "voidptr.h"
 
 #include <Pydlltest/hello.h>
 
@@ -60,4 +61,10 @@ BOOST_PYTHON_MODULE(PYWrapper)
 		.def("hello", &APointer::hello)
 		.def("GetWorld",&APointer::GetWorld, return_internal_reference<>())
 		;
+	
+	//void*÷∏’Î
+	def("get", &::get, return_value_policy<return_opaque_pointer>());
+	def("getnull", &::getnull, return_value_policy<return_opaque_pointer>());
+	def("use", &::use);
+	def("useany", &::useany);
 }

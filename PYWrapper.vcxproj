@@ -155,6 +155,7 @@
     <ClInclude Include="Pointer.h" />
     <ClInclude Include="PureClass.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="voidptr.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Callback.cpp" />

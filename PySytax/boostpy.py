@@ -1,14 +1,18 @@
-import PYWrapper
-#from PYWrapper import TestCallBack
+#import PYWrapper
+from PYWrapper import *
 import ClassTest
 
-a = PYWrapper.A()
+#虚函数
+a = A()
 print(a.f())
-ap = PYWrapper.APointer.create()
+
+#裸指针与智能指针，
+ap = APointer.create()
 print(ap.hello())
-aptr = PYWrapper.APointer.createSP()
+aptr = APointer.createSP()
 print(aptr.hello())
-apw = PYWrapper.APointer()
+apw = APointer()
+#返回引用
 aw1 = apw.GetWorld()
 aw2 = apw.GetWorld()
 print("aw1:" + aw1.greet())
@@ -17,14 +21,20 @@ aw1.set("aw1")
 aw2.set("aw2")
 print("aw1:" + aw1.greet())
 print("aw2:" + aw2.greet())
+#void*指针
+use(get())
+print(useany(get()))
+print(useany(None))
+print(useany(getnull()))
 
-PYWrapper.greet()
-planet = PYWrapper.World()
+#全局函数，类属性方法
+greet()
+planet = World()
 planet.set('tgest')
 planet.greet()
-pln = PYWrapper.World('con')
+pln = World('con')
 pln.greet()
-x = PYWrapper.Var('pi')
+x = Var('pi')
 x.value = 3.14
 print (x.name, 'is around', x.value)
 
@@ -40,7 +50,7 @@ def tr(sz,obj):
     obj.static_print()
 
 try:
-    name = PYWrapper.TestCallBack("py 2 c++",tr,ClassTest.Foo())
+    name = TestCallBack("py 2 c++",tr,ClassTest.Foo())
     print(name)
 except TypeError as te:
     print(te)
