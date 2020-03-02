@@ -2,6 +2,14 @@
 from PYWrapper import *
 import ClassTest
 
+class PythonDerived(Base):
+    def hello(self):
+        return "Python hello"
+
+        
+
+
+
 #虚函数
 a = A()
 print(a.f())
@@ -21,16 +29,26 @@ aw1.set("aw1")
 aw2.set("aw2")
 print("aw1:" + aw1.greet())
 print("aw2:" + aw2.greet())
+
+#提取类
+dumaw = exClass(aw1)
+duwawlen = len(dumaw.nameV)
+print(dumaw.nameV[0])
+print("aw1:" + dumaw.greet())
 #void*指针
 use(get())
 print(useany(get()))
 print(useany(None))
 print(useany(getnull()))
 
+
+
 #全局函数，类属性方法
 greet()
 planet = World()
 planet.set('tgest')
+planet.greet()
+planet.setP('ConstLuxiang')
 planet.greet()
 pln = World('con')
 pln.greet()

@@ -4,6 +4,8 @@
 #include <string>
 #include <boost/python.hpp>
 
+#include "ExposeClasses.h"
+
 using namespace std;
 
 using namespace boost::python;
@@ -30,5 +32,7 @@ public:
 };
 
 const string TestCallBack(const string& szParam, object pyCallBack, object obj);
+
+World exClass(object x);
 
 #endif // Callback_h__

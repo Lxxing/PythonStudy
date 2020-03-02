@@ -6,6 +6,7 @@
 #include <boost/python/module.hpp>
 #include <boost/python/def.hpp>
 #include <boost/python.hpp>
+#include <boost/python/suite/indexing/vector_indexing_suite.hpp>
 
 #include "ExposeClasses.h"
 #include "Inheritance.h"
@@ -31,15 +32,24 @@ BOOST_PYTHON_MODULE(PYWrapper)
 
 	def("greet", greet);
 
+
+	// vector of strings
+	class_<std::vector<std::string> >("StringVec")
+		.def(vector_indexing_suite<std::vector<std::string> >())
+		;
+
 	class_<World>("World", init<std::string>())
 		.def(init<>())
 		.def("greet", &World::greet)
 		.def("set", &World::set)
+		.def("setP", &World::setP)
+		.def_readwrite("nameV", &World::nameV)
 		;
 
 	class_<Var>("Var", init<std::string>())
 		.def_readonly("name", &Var::name)
-		.def_readwrite("value", &Var::value);
+		.def_readwrite("value", &Var::value)
+		;
 
 	class_<Num>("Num")
 		.add_property("rovalue", &Num::get)
@@ -67,4 +77,10 @@ BOOST_PYTHON_MODULE(PYWrapper)
 	def("getnull", &::getnull, return_value_policy<return_opaque_pointer>());
 	def("use", &::use);
 	def("useany", &::useany);
+
+	//Ã·»°c++¿‡
+	def("exClass", exClass);
+
+	//
+	class_<BaseWrap, boost::noncopyable> base("Base");
 }

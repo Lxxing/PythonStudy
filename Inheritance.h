@@ -7,43 +7,34 @@
 #include <boost/python/def.hpp>
 
 using namespace std;
-
-class CBase
+// An abstract base class
+class Base : public boost::noncopyable
 {
 public:
-	CBase() { }
-	virtual ~CBase() { }
+	virtual ~Base() {};
+	virtual std::string hello() = 0;
+};
 
-	void myBase()
+// C++ derived class
+class CppDerived : public Base
+{
+public:
+	virtual ~CppDerived() {}
+	virtual std::string hello() { return "CppDerived Hello from C++!"; }
+};
+
+// Familiar Boost.Python wrapper class for Base
+struct BaseWrap : Base, boost::python::wrapper<Base>
+{
+	virtual std::string hello()
 	{
-		cout << "CBase::myBase" << endl;
+#if BOOST_WORKAROUND(BOOST_MSVC, <= 1300)
+		// workaround for VC++ 6.x or 7.0, see
+		return python::call<std::string>(this->get_override("hello").ptr());
+#else
+		return this->get_override("hello")();
+#endif
 	}
-};
-
-class CDerive : public CBase
-{
-public:
-	CDerive() { }
-	~CDerive() { }
-
-	void myDerive()
-	{
-		cout << "CDerive::myDerive" << endl;
-	}
-};
-
-
-struct base
-{
-	virtual ~base() {};
-	int a;
-};
-
-struct derive : base
-{
-public:
-	int b;
-
 };
 
 #endif // Inheritance_h__

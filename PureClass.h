@@ -27,19 +27,19 @@ struct PCallback : P, wrapper<P>
 struct A
 {
 	virtual ~A() {}
-	virtual char const* f() { return "A::f()"; }
+	virtual char const* f(std::string a) { return "A::f()"; }
 
 
 };
 
 struct ACallback : A, wrapper<A>
 {
-	char const* f()
+	char const* f(std::string a)
 	{
-		if (override f = this->get_override("f"))
-			return f();
-		return A::f();
+		if (override ft = this->get_override("f"))
+			return ft(a);
+		return A::f(a);
 	}
 
-	char const* default_f() { return this->A::f(); }
+	char const* default_f(std::string a) { return this->A::f(a); }
 };
